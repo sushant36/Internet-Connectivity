@@ -1,8 +1,14 @@
-# How To Use
+public class MainActivity extends AppCompatActivity {
+	private boolean isInternetConnected;
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+	    
+	 isInternetConnected=isInternetAvailable();   
+    }
 
-# Call isInternetAvailable()
-
-   public boolean isInternetAvailable() {
+public boolean isInternetAvailable() {
         boolean isConnectedFast = false;
         try {
             isConnectedFast = Boolean.parseBoolean(new IsInternetAvailable().execute().get());
@@ -12,3 +18,4 @@
         return  isConnectedFast;
 	}	
  
+}
